@@ -1,551 +1,1189 @@
-/* ============================================
-   VIMAN — Design "Atelier cinématique"
-   Palette resserrée, un seul accent principal,
-   signature "ticket d'atelier" réutilisée partout
-   ============================================ */
+/* =========================================
+   VIMAN — STYLE PRINCIPAL
+========================================= */
 
 :root {
-    --bg: #0d0d0d;
-    --bg-alt: #161616;
-    --bg-card: #131313;
+    --bg: #080808;
+    --surface: #111111;
+    --surface-2: #181818;
+    --white: #f5f5f2;
+    --muted: #a7a7a4;
+    --line: rgba(255,255,255,.12);
 
-    --text: #f5f3ee;
-    --muted: #8c8c86;
-    --line: rgba(245, 243, 238, 0.1);
+    --ps: #315bb5;
+    --ps-dark: #203f82;
 
-    /* Un seul accent principal (rouge = aussi la couleur Nintendo) */
-    --accent: #d1352b;
-    --accent-dark: #a82920;
+    --nintendo: #df3029;
+    --nintendo-dark: #a92320;
 
-    /* Badges consoles (utilisés uniquement en petites étiquettes) */
-    --badge-nintendo: #d1352b;
-    --badge-playstation: #2a4e9e;
-    --badge-xbox: #3f7d45;
+    --xbox: #418349;
+    --xbox-dark: #2b6134;
 
     --whatsapp: #25d366;
 
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-text: 'Inter', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-
-    --transition: all 0.25s ease;
+    --radius: 16px;
 }
+
+
+/* =========================================
+   RESET
+========================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: var(--font-text);
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Inter", sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-h1, h2, h3, .logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+img {
+    max-width: 100%;
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-/* ===== Navigation ===== */
-nav {
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+#navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background: rgba(13, 13, 13, 0.85);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    height: 78px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 6%;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
     z-index: 1000;
-    border-bottom: 1px solid var(--line);
-    transition: var(--transition);
+
+    background: rgba(8,8,8,.78);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    transition: .3s ease;
 }
+
+#navbar.scrolled {
+    background: rgba(8,8,8,.95);
+}
+
+
+/* LOGO */
 
 .logo {
-    font-size: 1.5rem;
-    color: var(--text);
     display: flex;
     align-items: center;
 }
+
 .logo-img {
-    height: 34px;
-    width: auto;
-    background: #ffffff;
-    border-radius: 4px;
-    padding: 4px 8px;
+    width: 76px;
+    height: 50px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    background: white;
+
+    padding: 7px;
 }
-.logo span { color: var(--accent); }
+
+
+/* MENU */
 
 .nav-links {
+    list-style: none;
+
     display: flex;
-    gap: 2.5rem;
+    align-items: center;
+    gap: 1.2rem;
 }
 
 .nav-links a {
-    font-size: 0.95rem;
-    color: var(--muted);
-    transition: var(--transition);
+    color: #ddd;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .78rem;
+
+    transition: .25s ease;
 }
-.nav-links a:hover { color: var(--text); }
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+/* MOBILE BUTTON */
 
 .menu-toggle {
     display: none;
-    width: 26px;
-    height: 20px;
-    position: relative;
+
+    width: 50px;
+    height: 50px;
+
+    background: transparent;
+
+    border: 0;
+
     cursor: pointer;
-    z-index: 1001;
 }
+
 .menu-toggle span {
     display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: var(--text);
-    left: 0;
-    transition: var(--transition);
-}
-.menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 9px; }
-.menu-toggle span:nth-child(3) { top: 18px; }
-.menu-toggle.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 
-/* ===== Signature : badge "ticket d'atelier" =====
-   Réutilisé dans le hero, les fiches produits et le footer */
+    width: 34px;
+    height: 3px;
+
+    margin: 6px auto;
+
+    background: white;
+
+    transition: .3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    padding: 145px 5% 90px;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(49,91,181,.08),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(223,48,41,.06),
+            transparent 35%
+        );
+}
+
+.hero-inner {
+    max-width: 1300px;
+    margin: auto;
+}
+
 .ticket-badge {
-    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 12px 5px 18px;
-    background: var(--bg-alt);
+
+    padding: .6rem 1rem;
+
     border: 1px solid var(--line);
-    border-radius: 3px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
+    border-radius: 7px;
+
+    background: rgba(255,255,255,.025);
+
+    color: #aaa;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .72rem;
+
     text-transform: uppercase;
-    color: var(--muted);
-}
-.ticket-badge::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--line);
-}
-.ticket-badge.nintendo { background: var(--badge-nintendo); border-color: var(--badge-nintendo); color: #ffffff; }
-.ticket-badge.playstation { background: var(--badge-playstation); border-color: var(--badge-playstation); color: #ffffff; }
-.ticket-badge.xbox { background: var(--badge-xbox); border-color: var(--badge-xbox); color: #ffffff; }
-
-/* ===== Sections générales ===== */
-section { padding: 7rem 6% 5rem; }
-
-.section-head {
-    margin-bottom: 3rem;
-    max-width: 600px;
-}
-.section-head h2 {
-    font-size: 2.2rem;
-    margin-top: 0.8rem;
-}
-
-/* ===== Hero ===== */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 6% 4rem;
-    position: relative;
-    background:
-        radial-gradient(circle at 85% 20%, rgba(209, 53, 43, 0.08), transparent 40%),
-        var(--bg);
+    letter-spacing: .12em;
 }
 
 .hero-title {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    line-height: 1.05;
-    margin: 1.2rem 0 1.5rem;
-    max-width: 900px;
+    margin-top: 1.4rem;
+
+    max-width: 950px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    line-height: .94;
+
+    letter-spacing: -.055em;
 }
-.hero-title span { color: var(--accent); }
+
+.hero-title span {
+    color: #fff;
+}
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    max-width: 750px;
+
+    margin-top: 1.5rem;
+
     color: var(--muted);
-    max-width: 480px;
-    margin-bottom: 2.5rem;
+
+    font-size: 1.08rem;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
 
-/* ===== Blocs consoles colorés (demande client : couleurs franches, attire l'œil) ===== */
+/* =========================================
+   BRAND BLOCKS
+========================================= */
+
 .brand-blocks {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    width: 100%;
-    max-width: 900px;
-    margin-bottom: 2.5rem;
+
+    gap: 18px;
+
+    margin-top: 50px;
 }
 
 .brand-block {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    aspect-ratio: 1 / 1;
-    border-radius: 10px;
+
+    min-height: 360px;
+
     overflow: hidden;
-    text-decoration: none;
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-.brand-block:hover {
-    transform: translateY(-4px);
-    filter: brightness(1.1);
+
+    border-radius: 17px;
+
+    border: 1px solid var(--line);
+
+    background: var(--surface);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
-.brand-block img {
+.brand-block:hover {
+    transform: translateY(-7px);
+}
+
+
+/* IMAGE */
+
+.brand-image {
     position: absolute;
     inset: 0;
+
+    overflow: hidden;
+}
+
+.brand-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.55),
+        transparent 55%
+    );
+}
+
+.brand-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
+    transition: transform .5s ease;
 }
+
+.brand-block:hover img {
+    transform: scale(1.04);
+}
+
+
+/* MARQUE */
+
+.brand-block--playstation {
+    border-color: rgba(49,91,181,.65);
+
+    box-shadow:
+        0 15px 45px rgba(49,91,181,.10);
+}
+
+.brand-block--nintendo {
+    border-color: rgba(223,48,41,.65);
+
+    box-shadow:
+        0 15px 45px rgba(223,48,41,.10);
+}
+
+.brand-block--xbox {
+    border-color: rgba(65,131,73,.65);
+
+    box-shadow:
+        0 15px 45px rgba(65,131,73,.10);
+}
+
+
+/* LABEL */
 
 .brand-block-label {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding: 0.7rem;
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 20px;
+
     text-align: center;
-    font-family: var(--font-display);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.15rem;
     font-weight: 700;
-    font-size: 1rem;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.35);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+
+    z-index: 2;
 }
 
-/* Couleurs franches par marque (fond visible même avant chargement image) */
-.brand-block--playstation { background-color: #2a4e9e; }
-.brand-block--nintendo { background-color: #d1352b; }
-.brand-block--xbox { background-color: #3f7d45; }
 
-@media (max-width: 640px) {
-    .brand-blocks {
-        grid-template-columns: 1fr;
-        max-width: 320px;
-    }
-    .brand-block { aspect-ratio: 16 / 9; }
+/* couleurs labels */
+
+.brand-block--playstation .brand-block-label {
+    background: var(--ps-dark);
 }
 
-/* ===== Boutons ===== */
+.brand-block--nintendo .brand-block-label {
+    background: var(--nintendo-dark);
+}
+
+.brand-block--xbox .brand-block-label {
+    background: var(--xbox-dark);
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
 .btn {
     display: inline-flex;
+
     align-items: center;
-    gap: 10px;
-    padding: 0.9rem 1.8rem;
-    font-family: var(--font-text);
-    font-weight: 600;
-    font-size: 0.95rem;
-    border-radius: 4px;
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 0 25px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--line);
+
+    font-weight: 700;
+
     cursor: pointer;
-    transition: var(--transition);
-    border: 1px solid transparent;
+
+    transition: .25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
 }
 
 .btn-primary {
-    background-color: var(--accent);
-    color: var(--text);
+    background: var(--nintendo);
+    color: white;
+
+    border-color: transparent;
 }
-.btn-primary:hover { background-color: var(--accent-dark); }
 
 .btn-outline {
     background: transparent;
-    border-color: var(--line);
-    color: var(--text);
+    color: white;
 }
-.btn-outline:hover { border-color: var(--text); }
 
-/* ===== Grille produits ===== */
+.btn-outline:hover {
+    background: rgba(255,255,255,.08);
+}
+
+
+/* =========================================
+   FILTRE
+========================================= */
+
+.brand-filter {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: white;
+    background: #202020;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+    width: min(1300px, 90%);
+
+    margin: auto;
+
+    padding: 100px 0;
+}
+
+.section-head {
+    margin-bottom: 40px;
+}
+
+.section-head h2 {
+    margin-top: 15px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -.04em;
+}
+
+.section-description {
+    margin-top: 15px;
+
+    color: var(--muted);
+}
+
+.section-description a {
+    color: #fff;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
 }
 
 .product-card {
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 6px;
     overflow: hidden;
-    transition: var(--transition);
-}
-.product-card:hover { border-color: rgba(245, 243, 238, 0.25); }
 
-/* Fond plein coloré par marque, demande explicite du client */
-.product-card[data-brand="playstation"] {
-    background: var(--badge-playstation);
-    border-color: var(--badge-playstation);
-}
-.product-card[data-brand="nintendo"] {
-    background: var(--badge-nintendo);
-    border-color: var(--badge-nintendo);
-}
-.product-card[data-brand="xbox"] {
-    background: var(--badge-xbox);
-    border-color: var(--badge-xbox);
+    border: 1px solid var(--line);
+
+    border-radius: 15px;
+
+    background: var(--surface);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
 }
 
-/* Texte en blanc pour rester lisible sur les fonds colorés */
-.product-card[data-brand] .product-info h3,
-.product-card[data-brand] .product-info p {
-    color: #ffffff;
-}
-.product-card[data-brand] .product-info p {
-    opacity: 0.9;
-}
-.product-card[data-brand] .btn-outline {
-    border-color: rgba(255, 255, 255, 0.6);
-    color: #ffffff;
-}
-.product-card[data-brand] .btn-outline:hover {
-    border-color: #ffffff;
-    background: rgba(255, 255, 255, 0.15);
+.product-card:hover {
+    transform: translateY(-5px);
 }
 
-.product-card[data-brand="playstation"]:hover {
-    border-color: #ffffff;
-    box-shadow: 0 8px 24px rgba(42, 78, 158, 0.4);
-}
-.product-card[data-brand="nintendo"]:hover {
-    border-color: #ffffff;
-    box-shadow: 0 8px 24px rgba(209, 53, 43, 0.4);
-}
-.product-card[data-brand="xbox"]:hover {
-    border-color: #ffffff;
-    box-shadow: 0 8px 24px rgba(63, 125, 69, 0.4);
-}
+
+/* IMAGE */
 
 .product-image-wrap {
     position: relative;
-    height: 260px;
+
+    height: 320px;
+
+    background: #181818;
+
+    overflow: hidden;
 }
+
 .product-image {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
+    display: block;
+
+    transition: transform .4s ease;
 }
+
+.product-card:hover .product-image {
+    transform: scale(1.035);
+}
+
+
+/* BADGE */
+
 .product-image-wrap .ticket-badge {
     position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(13, 13, 13, 0.85);
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 3;
+
+    color: white;
+
+    background: rgba(10,10,10,.75);
+
+    backdrop-filter: blur(8px);
 }
 
-.product-info { padding: 1.5rem; }
+.ticket-badge.playstation {
+    border-color: var(--ps);
+    color: #dce7ff;
+}
+
+.ticket-badge.nintendo {
+    border-color: var(--nintendo);
+    color: #ffe1df;
+}
+
+.ticket-badge.xbox {
+    border-color: var(--xbox);
+    color: #dcffdf;
+}
+
+
+/* INFO */
+
+.product-info {
+    padding: 25px;
+}
+
 .product-info h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-.product-info p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.3rem;
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.35rem;
+
+    line-height: 1.2;
 }
 
-/* ===== Section Crackage / Modding ===== */
-.modding-section { background-color: var(--bg-alt); }
+.product-info p {
+    margin-top: 12px;
+
+    color: var(--muted);
+}
+
+.product-info .price {
+    color: white;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.product-info .btn {
+    margin-top: 20px;
+}
+
+
+/* MARQUE COLORS */
+
+.product-card--playstation {
+    border-color: rgba(49,91,181,.5);
+}
+
+.product-card--xbox {
+    border-color: rgba(65,131,73,.5);
+}
+
+.product-card--nintendo {
+    border-color: rgba(223,48,41,.5);
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border: 1px dashed var(--line);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.02);
+}
+
+.empty-icon {
+    font-size: 3rem;
+
+    color: #777;
+
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.5rem;
+}
+
+.empty-state p {
+    max-width: 600px;
+
+    margin: 10px auto 0;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   MODDING
+========================================= */
+
+.modding-section {
+    width: 100%;
+
+    padding-left: 5%;
+    padding-right: 5%;
+
+    background: #0d0d0d;
+}
 
 .modding-content {
+    max-width: 1300px;
+
+    margin: auto;
+
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
+
+    gap: 50px;
+
     align-items: center;
 }
 
-.modding-text h3 {
-    font-size: 1.8rem;
-    margin: 0.8rem 0 1rem;
+.modding-text h2 {
+    margin: 18px 0;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2.4rem, 5vw, 4rem);
+
+    line-height: 1;
 }
-.modding-text > p {
+
+.modding-text p {
     color: var(--muted);
-    margin-bottom: 1.5rem;
 }
-.modding-text ul { margin-bottom: 2rem; }
+
+.modding-text ul {
+    margin: 25px 0;
+
+    padding-left: 20px;
+
+    color: #ddd;
+}
+
 .modding-text li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin: 9px 0;
 }
-.modding-text li::before {
-    content: '—';
-    color: var(--accent);
+
+.modding-image {
+    min-height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--line);
 }
 
 .modding-image img {
-    border-radius: 6px;
-    border: 1px solid var(--line);
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 }
 
-/* ===== Floating WhatsApp ===== */
-.floating-wa {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    color: var(--whatsapp);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    transition: var(--transition);
-}
-.floating-wa:hover {
-    border-color: var(--whatsapp);
-    transform: scale(1.06);
-}
 
-.empty-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    padding: 2rem 0;
-    border: 1px dashed var(--line);
-    border-radius: 6px;
-}
+/* =========================================
+   CTA
+========================================= */
 
-/* ===== CTA WhatsApp ===== */
 .cta-section {
-    padding: 5rem 6%;
-    display: flex;
-    justify-content: center;
+    width: 90%;
 }
+
 .cta-box {
-    max-width: 560px;
+    padding: 70px 30px;
+
     text-align: center;
-    background: var(--bg-alt);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 3rem 2rem;
-}
-.cta-box .ticket-badge { margin-bottom: 1rem; }
-.cta-box h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-.cta-box p { color: var(--muted); margin-bottom: 1.8rem; }
 
-/* ===== Footer ===== */
+    border-radius: 18px;
+
+    border: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(223,48,41,.14),
+            transparent 65%
+        ),
+        #111;
+}
+
+.cta-box h2 {
+    margin-top: 20px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    line-height: 1;
+}
+
+.cta-box p {
+    max-width: 650px;
+
+    margin: 18px auto 28px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
 footer {
-    background: var(--bg);
-    border-top: 1px solid var(--line);
-    padding: 4rem 6% 2rem;
-}
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
-}
-.footer-col h4 {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin-bottom: 1.2rem;
-}
-.footer-col p, .footer-col a {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin-bottom: 0.7rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.footer-col a:hover { color: var(--text); }
+    background: #050505;
 
-.social-icons { display: flex; gap: 12px; margin-top: 0.8rem; }
-.social-icons a {
-    width: 36px; height: 36px;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    display: flex; justify-content: center; align-items: center;
-    border-radius: 50%;
-    transition: var(--transition);
+    border-top: 1px solid var(--line);
 }
-.social-icons a:hover { border-color: var(--text); }
+
+.footer-content {
+    width: 90%;
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 70px 0;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+.footer-col h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    margin-bottom: 15px;
+}
+
+.footer-col p,
+.footer-col a {
+    display: block;
+
+    color: var(--muted);
+
+    margin: 8px 0;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-weight: 700;
+}
 
 .footer-bottom {
+    padding: 20px 5%;
+
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 0.85rem;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    color: #777;
+
+    font-size: .85rem;
 }
 
-/* ===== Animations scroll ===== */
+
+/* =========================================
+   WHATSAPP FLOTTANT
+========================================= */
+
+.floating-wa {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 68px;
+    height: 68px;
+
+    display: grid;
+    place-items: center;
+
+    z-index: 999;
+
+    border-radius: 50%;
+
+    background: #090909;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+
+    transition: .25s ease;
+}
+
+.floating-wa:hover {
+    transform: scale(1.08);
+}
+
+.floating-wa span {
+    color: var(--whatsapp);
+
+    font-size: 2.2rem;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
 .reveal {
     opacity: 0;
+
     transform: translateY(30px);
-    transition: all 0.7s ease-out;
-}
-.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-    .modding-content { grid-template-columns: 1fr; }
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE TABLETTE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        gap: .7rem;
+    }
+
+    .nav-links a {
+        font-size: .68rem;
+    }
+
+    .brand-blocks {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-block {
+        min-height: 380px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modding-content {
+        grid-template-columns: 1fr;
+    }
+
+    .modding-image {
+        min-height: 350px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    #navbar {
+        height: 82px;
+
+        padding: 0 7%;
+    }
+
+    .logo-img {
+        width: 76px;
+        height: 50px;
+    }
+
+
+    /* MENU */
+
+    .menu-toggle {
+        display: block;
+    }
+
     .nav-links {
         position: absolute;
-        top: 100%;
+
+        top: 82px;
         left: 0;
+
         width: 100%;
-        background: rgba(13, 13, 13, 0.98);
+
+        padding: 20px 7% 30px;
+
+        display: flex;
         flex-direction: column;
-        padding: 2rem 6%;
-        gap: 1.5rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.35s ease-in-out;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: rgba(8,8,8,.97);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+
+        opacity: 0;
+
+        transform: translateY(-15px);
+
+        pointer-events: none;
+
+        transition: .3s ease;
     }
+
     .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
     }
-    section { padding: 6rem 6% 4rem; }
+
+    .nav-links li {
+        border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 15px 0;
+
+        font-size: .8rem;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 125px 7% 70px;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .hero-subtitle {
+        font-size: .98rem;
+    }
+
+
+    /* BRAND */
+
+    .brand-blocks {
+        margin-top: 35px;
+
+        gap: 15px;
+    }
+
+    .brand-block {
+        min-height: 270px;
+    }
+
+    .brand-block-label {
+        padding: 16px;
+
+        font-size: 1rem;
+    }
+
+
+    /* BUTTONS */
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+
+    /* SECTIONS */
+
+    section {
+        width: 86%;
+
+        padding: 75px 0;
+    }
+
+    .section-head {
+        margin-bottom: 30px;
+    }
+
+
+    /* PRODUCTS */
+
+    .product-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .product-image-wrap {
+        height: 270px;
+    }
+
+    .product-info {
+        padding: 22px;
+    }
+
+
+    /* MODDING */
+
+    .modding-section {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .modding-content {
+        gap: 30px;
+    }
+
+    .modding-image {
+        min-height: 280px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-content {
+        width: 86%;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 60px 0;
+    }
+
+
+    /* WHATSAPP */
+
+    .floating-wa {
+        width: 60px;
+        height: 60px;
+
+        right: 16px;
+        bottom: 18px;
+    }
+
 }
