@@ -1,14 +1,6 @@
-// 1. Navbar Sticky Effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// 1. Navbar (fond qui s'accentue légèrement au scroll — géré en CSS, rien à faire ici sauf si besoin plus tard)
 
-// 2. Menu Mobile Toggle (icône hamburger -> croix)
+// 2. Menu Mobile Toggle
 const mobileMenu = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -17,7 +9,6 @@ mobileMenu.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
 });
 
-// Fermer le menu mobile quand on clique sur un lien
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -26,7 +17,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // 3. Générateur dynamique de liens WhatsApp pour les commandes
-const numeroWhatsApp = "242069269364"; // Format international sans le '+'
+const numeroWhatsApp = "242069269364";
 const boutonsCommander = document.querySelectorAll('.btn-commander');
 
 boutonsCommander.forEach(bouton => {
@@ -39,22 +30,14 @@ boutonsCommander.forEach(bouton => {
     });
 });
 
-// 4. Animation au scroll (Intersection Observer)
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
+// 4. Animation au scroll
+const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal').forEach(element => {
-    observer.observe(element);
-});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
