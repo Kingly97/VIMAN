@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIMAN | Vente, Réparation, Crackage & Modification de Consoles à Brazzaville</title>
- 
+    <title>VIMAN | Vente, Réparation & Modification de Consoles à Brazzaville</title>
+
     <meta name="description" content="VIMAN Brazzaville : Spécialiste du jeu vidéo au Congo. Vente de consoles, réparation, crackage, modification et accessoires gaming.">
     <meta property="og:title" content="VIMAN - Atelier gaming à Brazzaville">
     <meta property="og:description" content="Vente, réparation et modification de consoles. Découvrez nos produits et services.">
-    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:image" content="og-image.jpg">
     <meta property="og:type" content="website">
- 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
- 
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+
     <nav id="navbar">
-        <a href="#" class="logo">VI<span>MAN</span></a>
+        <a href="#" class="logo">
+            <img src="logo.jpg" alt="VIMAN" class="logo-img">
+        </a>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
         </div>
@@ -34,17 +36,37 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
- 
+
     <!-- Hero -->
     <header class="hero" id="accueil">
         <span class="ticket-badge reveal">Atelier • Brazzaville, Congo</span>
         <h1 class="hero-title reveal">Vente, réparation<br>& modification de <span>consoles</span>.</h1>
         <p class="hero-subtitle reveal">PlayStation, Xbox, Nintendo — achat, réparation, crackage et customisation. Un vrai atelier, pas juste une boutique.</p>
+
+        <!-- 3 blocs consoles, une couleur franche par marque -->
+        <div class="brand-blocks reveal">
+            <a href="#salon" class="brand-block brand-block--playstation">
+                <!-- REMPLACER PAR TA PHOTO: src="ps5.jpg" -->
+                <img src="https://placehold.co/400x400/2a4e9e/ffffff?text=PS5" alt="PlayStation 5 en stock chez VIMAN" loading="lazy">
+                <span class="brand-block-label">PlayStation</span>
+            </a>
+            <a href="#portables" class="brand-block brand-block--nintendo">
+                <!-- REMPLACER PAR TA PHOTO: src="switch2.jpg" -->
+                <img src="https://placehold.co/400x400/d1352b/ffffff?text=Switch+2" alt="Nintendo Switch 2 en stock chez VIMAN" loading="lazy">
+                <span class="brand-block-label">Nintendo</span>
+            </a>
+            <a href="#salon" class="brand-block brand-block--xbox">
+                <!-- REMPLACER PAR TA PHOTO: src="xbox.jpg" -->
+                <img src="https://placehold.co/400x400/3f7d45/ffffff?text=Xbox" alt="Xbox Series X en stock chez VIMAN" loading="lazy">
+                <span class="brand-block-label">Xbox</span>
+            </a>
+        </div>
+
         <div class="hero-actions reveal">
             <a href="https://wa.me/c/242069269364" target="_blank" class="btn btn-primary">Voir le catalogue WhatsApp</a>
             <a href="#salon" class="btn btn-outline">Découvrir les consoles</a>
         </div>
- 
+
         <!-- Filtre par marque : clique sur une console, ne voir que ce qui la concerne -->
         <div class="brand-filter reveal">
             <button class="filter-btn active" data-filter="all">Tout afficher</button>
@@ -53,13 +75,14 @@
             <button class="filter-btn filter-nintendo" data-filter="nintendo">Nintendo</button>
         </div>
     </header>
- 
+
     <!-- Arrivages -->
     <!--
         Comment ajouter un article ici plus tard :
         Copie une carte .product-card (regarde la section "Jeux Vidéo" plus bas
         pour un exemple), colle-la dans <div class="product-grid"> ci-dessous,
         et retire la ligne <p class="empty-state">...</p> si elle est encore là.
+        Mets ta photo directement dans le même dossier que index.html (pas de sous-dossier).
     -->
     <section id="arrivages">
         <div class="section-head reveal">
@@ -70,7 +93,7 @@
             <p class="empty-state reveal">Pas de nouveau arrivage pour le moment — revenez bientôt !</p>
         </div>
     </section>
- 
+
     <!-- Jeux Vidéo -->
     <section id="jeux">
         <div class="section-head reveal">
@@ -81,7 +104,7 @@
         <div class="product-grid">
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <img src="images/jeu-gta5.jpg" alt="GTA V Premium Edition PS4 en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="jeu-gta5.jpg" alt="GTA V Premium Edition PS4 en stock chez VIMAN" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PS4</span>
                 </div>
                 <div class="product-info">
@@ -92,7 +115,7 @@
             </div>
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <img src="images/jeu-spiderman.jpg" alt="Spider-Man Miles Morales PS4 en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="jeu-spiderman.jpg" alt="Spider-Man Miles Morales PS4 en stock chez VIMAN" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PS4</span>
                 </div>
                 <div class="product-info">
@@ -103,7 +126,7 @@
             </div>
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <img src="images/jeu-uncharted.jpg" alt="Uncharted The Nathan Drake Collection PS4 en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="jeu-uncharted.jpg" alt="Uncharted The Nathan Drake Collection PS4 en stock chez VIMAN" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PS4</span>
                 </div>
                 <div class="product-info">
@@ -114,7 +137,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- Consoles de Salon -->
     <section id="salon">
         <div class="section-head reveal">
@@ -124,7 +147,7 @@
         <div class="product-grid">
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/ps5.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="ps5.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=PlayStation+5" alt="PlayStation 5" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PlayStation</span>
                 </div>
@@ -136,7 +159,7 @@
             </div>
             <div class="product-card reveal" data-brand="xbox">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/xbox-series-x.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="xbox-series-x.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=Xbox+Series+X" alt="Xbox Series X" class="product-image" loading="lazy">
                     <span class="ticket-badge xbox">Xbox</span>
                 </div>
@@ -148,7 +171,7 @@
             </div>
             <div class="product-card reveal" data-brand="nintendo">
                 <div class="product-image-wrap">
-                    <img src="images/switch-oled.jpg" alt="Nintendo Switch OLED en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="switch-oled.jpg" alt="Nintendo Switch OLED en stock chez VIMAN" class="product-image" loading="lazy">
                     <span class="ticket-badge nintendo">Nintendo</span>
                 </div>
                 <div class="product-info">
@@ -159,7 +182,7 @@
             </div>
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <img src="images/ps3.jpg" alt="PlayStation 3 500GB en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="ps3.jpg" alt="PlayStation 3 500GB en stock chez VIMAN" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PlayStation</span>
                 </div>
                 <div class="product-info">
@@ -170,7 +193,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- Consoles Portables -->
     <section id="portables">
         <div class="section-head reveal">
@@ -180,7 +203,7 @@
         <div class="product-grid">
             <div class="product-card reveal" data-brand="nintendo">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/switch-lite.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="switch-lite.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=Switch+Lite" alt="Nintendo Switch Lite" class="product-image" loading="lazy">
                     <span class="ticket-badge nintendo">Nintendo</span>
                 </div>
@@ -192,7 +215,7 @@
             </div>
             <div class="product-card reveal" data-brand="playstation">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/psp-vita.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="psp-vita.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=PSP+%2F+PS+Vita" alt="PS Vita" class="product-image" loading="lazy">
                     <span class="ticket-badge playstation">PlayStation</span>
                 </div>
@@ -204,7 +227,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- Crackage & Modding -->
     <section id="modding" class="modding-section">
         <div class="modding-content reveal">
@@ -222,12 +245,12 @@
                 <button class="btn btn-primary btn-commander" data-product="Service de Crackage / Réparation">Contactez un technicien</button>
             </div>
             <div class="modding-image">
-                <!-- REMPLACER PAR TON IMAGE: src="images/modding.jpg" -->
+                <!-- REMPLACER PAR TON IMAGE: src="modding.jpg" -->
                 <img src="https://placehold.co/800x600/161616/f5f3ee?text=Atelier+de+Modification" alt="Réparation et Hack de consoles" loading="lazy">
             </div>
         </div>
     </section>
- 
+
     <!-- Accessoires -->
     <section id="accessoires">
         <div class="section-head reveal">
@@ -237,7 +260,7 @@
         <div class="product-grid">
             <div class="product-card reveal">
                 <div class="product-image-wrap">
-                    <img src="images/manette-ps5.jpg" alt="Manettes DualSense PS5 en stock chez VIMAN" class="product-image" loading="lazy">
+                    <img src="manette-ps5.jpg" alt="Manettes DualSense PS5 en stock chez VIMAN" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
                     <h3>Manette PS5 DualSense</h3>
@@ -247,7 +270,7 @@
             </div>
             <div class="product-card reveal">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/casque-gamer.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="casque-gamer.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=Casque+Gamer" alt="Casque Gamer" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
@@ -258,7 +281,7 @@
             </div>
             <div class="product-card reveal">
                 <div class="product-image-wrap">
-                    <!-- REMPLACER PAR TON IMAGE: src="images/accessoires-divers.jpg" -->
+                    <!-- REMPLACER PAR TON IMAGE: src="accessoires-divers.jpg" -->
                     <img src="https://placehold.co/600x400/1a1a1a/f5f3ee?text=Cables+%26+Accessoires" alt="Câbles et Protections" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
@@ -269,7 +292,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- Appel à l'action WhatsApp -->
     <section class="cta-section">
         <div class="cta-box reveal">
@@ -279,7 +302,7 @@
             <a href="https://wa.me/242069269364" target="_blank" class="btn btn-primary">Discuter sur WhatsApp</a>
         </div>
     </section>
- 
+
     <!-- Footer -->
     <footer id="contact">
         <div class="footer-content reveal">
@@ -310,11 +333,11 @@
             <p>&copy; 2026 VIMAN Brazzaville. Tous droits réservés.</p>
         </div>
     </footer>
- 
+
     <a href="https://wa.me/c/242069269364" target="_blank" class="floating-wa" aria-label="Contact WhatsApp">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     </a>
- 
+
     <script src="script.js"></script>
 </body>
 </html>
