@@ -1,27 +1,36 @@
-/* Variables CSS pour modification facile */
+/* ============================================
+   VIMAN — Design "Atelier cinématique"
+   Palette resserrée, un seul accent principal,
+   signature "ticket d'atelier" réutilisée partout
+   ============================================ */
+
 :root {
-    --bg-main: #0a0a0a;
-    --bg-secondary: #121212;
-    --bg-card: #1a1a1a;
+    --bg: #0d0d0d;
+    --bg-alt: #161616;
+    --bg-card: #131313;
 
-    --text-main: #ffffff;
-    --text-muted: #b3b3b3;
+    --text: #f5f3ee;
+    --muted: #8c8c86;
+    --line: rgba(245, 243, 238, 0.1);
 
-    /* Couleurs de la marque et accents */
-    --accent-red: #ff003c; /* Rouge dynamique */
-    --accent-yellow: #ffcc00; /* Jaune électrique */
-    --accent-blue: #0070d1; /* Bleu tech */
-    --accent-green: #107c10; /* Vert Xbox */
+    /* Un seul accent principal (rouge = aussi la couleur Nintendo) */
+    --accent: #d1352b;
+    --accent-dark: #a82920;
 
-    --whatsapp-color: #25D366;
+    /* Badges consoles (utilisés uniquement en petites étiquettes) */
+    --badge-nintendo: #d1352b;
+    --badge-playstation: #2a4e9e;
+    --badge-xbox: #3f7d45;
 
-    --font-title: 'Orbitron', sans-serif;
-    --font-text: 'Rajdhani', sans-serif;
+    --whatsapp: #25d366;
 
-    --transition: all 0.3s ease;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-text: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --transition: all 0.25s ease;
 }
 
-/* Reset global */
 * {
     margin: 0;
     padding: 0;
@@ -30,500 +39,513 @@
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
+    background-color: var(--bg);
+    color: var(--text);
     font-family: var(--font-text);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .logo {
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+h1, h2, h3, .logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
 
-ul {
-    list-style: none;
-}
-
-/* Navigation */
+/* ===== Navigation ===== */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: rgba(13, 13, 13, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 1.2rem 6%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--line);
     transition: var(--transition);
-}
-
-nav.scrolled {
-    padding: 0.5rem 5%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--text-main);
+    font-size: 1.5rem;
+    color: var(--text);
     display: flex;
     align-items: center;
-    gap: 5px;
 }
-
-.logo span {
-    color: var(--accent-red);
+.logo-img {
+    height: 34px;
+    width: auto;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 4px 8px;
 }
+.logo span { color: var(--accent); }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: var(--accent-yellow);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--accent-yellow);
+    font-size: 0.95rem;
+    color: var(--muted);
     transition: var(--transition);
 }
+.nav-links a:hover { color: var(--text); }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Bouton hamburger -> croix quand le menu est ouvert */
 .menu-toggle {
     display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--text-main);
-    width: 30px;
-    height: 24px;
+    width: 26px;
+    height: 20px;
     position: relative;
+    cursor: pointer;
     z-index: 1001;
 }
-
 .menu-toggle span {
     display: block;
     position: absolute;
-    height: 3px;
+    height: 2px;
     width: 100%;
-    background: var(--text-main);
-    border-radius: 3px;
+    background: var(--text);
     left: 0;
     transition: var(--transition);
 }
-
 .menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 10px; }
-.menu-toggle span:nth-child(3) { top: 20px; }
+.menu-toggle span:nth-child(2) { top: 9px; }
+.menu-toggle span:nth-child(3) { top: 18px; }
+.menu-toggle.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 
-.menu-toggle.active span:nth-child(1) {
-    top: 10px;
-    transform: rotate(45deg);
-}
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-    top: 10px;
-    transform: rotate(-45deg);
-}
-
-/* Sections Générales */
-section {
-    padding: 6rem 5% 4rem;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--text-main);
+/* ===== Signature : badge "ticket d'atelier" =====
+   Réutilisé dans le hero, les fiches produits et le footer */
+.ticket-badge {
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 18px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
-
-.section-title::after {
+.ticket-badge::before {
     content: '';
     position: absolute;
-    width: 60%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-    bottom: -10px;
-    left: 20%;
-    border-radius: 2px;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+.ticket-badge.nintendo { background: var(--badge-nintendo); border-color: var(--badge-nintendo); color: #ffffff; }
+.ticket-badge.playstation { background: var(--badge-playstation); border-color: var(--badge-playstation); color: #ffffff; }
+.ticket-badge.xbox { background: var(--badge-xbox); border-color: var(--badge-xbox); color: #ffffff; }
+
+/* ===== Sections générales ===== */
+section { padding: 7rem 6% 5rem; }
+
+.section-head {
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+.section-head h2 {
+    font-size: 2.2rem;
+    margin-top: 0.8rem;
 }
 
-/* Hero Section */
+/* ===== Hero ===== */
 .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-main) 100%);
-    padding-top: 8rem;
+    padding: 8rem 6% 4rem;
     position: relative;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(209, 53, 43, 0.08), transparent 40%),
+        var(--bg);
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(255, 0, 60, 0.5);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05;
+    margin: 1.2rem 0 1.5rem;
+    max-width: 900px;
 }
-
-.hero-title span {
-    color: var(--accent-red);
-}
+.hero-title span { color: var(--accent); }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
-    max-width: 800px;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
 }
 
-/* Marques Hero */
-.brands-container {
+.hero-actions {
     display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-bottom: 4rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
-.brand-card {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 15px;
-    width: 200px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: var(--transition);
+/* ===== Blocs consoles colorés (demande client : couleurs franches, attire l'œil) ===== */
+.brand-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 2.5rem;
+}
+
+.brand-block {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    justify-content: flex-end;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+.brand-block:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
 }
 
-.brand-card h3 {
-    font-size: 1.2rem;
+.brand-block img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.brand-card.nintendo:hover {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
-}
-.brand-card.nintendo h3 { color: var(--accent-red); }
-
-.brand-card.playstation:hover {
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 20px rgba(0, 112, 209, 0.3);
-}
-.brand-card.playstation h3 { color: var(--accent-blue); }
-
-.brand-card.xbox:hover {
-    border-color: var(--accent-green);
-    box-shadow: 0 0 20px rgba(16, 124, 16, 0.3);
-}
-.brand-card.xbox h3 { color: var(--accent-green); }
-
-/* Boutons */
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-family: var(--font-title);
+.brand-block-label {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0.7rem;
+    text-align: center;
+    font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+/* Couleurs franches par marque (fond visible même avant chargement image) */
+.brand-block--playstation { background-color: #2a4e9e; }
+.brand-block--nintendo { background-color: #d1352b; }
+.brand-block--xbox { background-color: #3f7d45; }
+
+@media (max-width: 640px) {
+    .brand-blocks {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
+    .brand-block { aspect-ratio: 16 / 9; }
+}
+
+/* ===== Boutons ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.9rem 1.8rem;
+    font-family: var(--font-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: var(--transition);
-    border: none;
-    text-align: center;
+    border: 1px solid transparent;
 }
 
 .btn-primary {
-    background-color: var(--accent-red);
-    color: var(--text-main);
-    box-shadow: 0 0 15px rgba(255, 0, 60, 0.4);
+    background-color: var(--accent);
+    color: var(--text);
 }
+.btn-primary:hover { background-color: var(--accent-dark); }
 
-.btn-primary:hover {
-    background-color: #d10031;
-    box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
-    transform: translateY(-3px);
+.btn-outline {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--text);
 }
+.btn-outline:hover { border-color: var(--text); }
 
-.btn-whatsapp {
-    background-color: var(--whatsapp-color);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-}
-
-.btn-whatsapp:hover {
-    background-color: #1ebe57;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-    transform: translateY(-3px);
-}
-
-/* Grilles Produits */
+/* ===== Grille produits ===== */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .product-card {
     background: var(--bg-card);
-    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
     transition: var(--transition);
-    display: flex;
-    flex-direction: column;
+}
+.product-card:hover { border-color: rgba(245, 243, 238, 0.25); }
+
+/* Fond plein coloré par marque, demande explicite du client */
+.product-card[data-brand="playstation"] {
+    background: var(--badge-playstation);
+    border-color: var(--badge-playstation);
+}
+.product-card[data-brand="nintendo"] {
+    background: var(--badge-nintendo);
+    border-color: var(--badge-nintendo);
+}
+.product-card[data-brand="xbox"] {
+    background: var(--badge-xbox);
+    border-color: var(--badge-xbox);
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-yellow);
-    box-shadow: 0 10px 30px rgba(255, 204, 0, 0.1);
+/* Texte en blanc pour rester lisible sur les fonds colorés */
+.product-card[data-brand] .product-info h3,
+.product-card[data-brand] .product-info p {
+    color: #ffffff;
+}
+.product-card[data-brand] .product-info p {
+    opacity: 0.9;
+}
+.product-card[data-brand] .btn-outline {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+}
+.product-card[data-brand] .btn-outline:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
 }
 
+.product-card[data-brand="playstation"]:hover {
+    border-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(42, 78, 158, 0.4);
+}
+.product-card[data-brand="nintendo"]:hover {
+    border-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(209, 53, 43, 0.4);
+}
+.product-card[data-brand="xbox"]:hover {
+    border-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(63, 125, 69, 0.4);
+}
+
+.product-image-wrap {
+    position: relative;
+    height: 260px;
+}
 .product-image {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
-    border-bottom: 2px solid rgba(255,255,255,0.05);
+}
+.product-image-wrap .ticket-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(13, 13, 13, 0.85);
 }
 
-.product-info {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
+.product-info { padding: 1.5rem; }
 .product-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: var(--text-main);
 }
-
 .product-info p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.3rem;
 }
 
-/* Modding Section */
+/* ===== Section Crackage / Modding ===== */
+.modding-section { background-color: var(--bg-alt); }
+
 .modding-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3.5rem;
     align-items: center;
-    background: var(--bg-secondary);
-    padding: 3rem;
-    border-radius: 20px;
-    border-left: 5px solid var(--accent-blue);
 }
 
 .modding-text h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--accent-blue);
+    font-size: 1.8rem;
+    margin: 0.8rem 0 1rem;
 }
-
-.modding-text p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
+.modding-text > p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
 }
-
-.modding-text ul {
-    margin-bottom: 2rem;
-}
-
+.modding-text ul { margin-bottom: 2rem; }
 .modding-text li {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
 .modding-text li::before {
-    content: "✓";
-    color: var(--accent-yellow);
-    font-weight: bold;
+    content: '—';
+    color: var(--accent);
 }
 
 .modding-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 112, 209, 0.2);
+    border-radius: 6px;
+    border: 1px solid var(--line);
 }
 
-/* Floating WhatsApp Button */
+/* ===== Floating WhatsApp ===== */
 .floating-wa {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--whatsapp-color);
-    color: white;
-    width: 60px;
-    height: 60px;
+    bottom: 28px;
+    right: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--whatsapp);
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
     z-index: 999;
     transition: var(--transition);
 }
-
 .floating-wa:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    border-color: var(--whatsapp);
+    transform: scale(1.06);
 }
 
-/* Footer */
-footer {
-    background-color: #050505;
-    padding: 4rem 5% 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 2rem 0;
+    border: 1px dashed var(--line);
+    border-radius: 6px;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer-col h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent-red);
-}
-
-.footer-col p, .footer-col a {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-col a:hover {
-    color: var(--accent-yellow);
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    background: var(--bg-card);
+/* ===== CTA WhatsApp ===== */
+.cta-section {
+    padding: 5rem 6%;
     display: flex;
     justify-content: center;
+}
+.cta-box {
+    max-width: 560px;
+    text-align: center;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 3rem 2rem;
+}
+.cta-box .ticket-badge { margin-bottom: 1rem; }
+.cta-box h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+.cta-box p { color: var(--muted); margin-bottom: 1.8rem; }
+
+/* ===== Footer ===== */
+footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 4rem 6% 2rem;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.footer-col h4 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+}
+.footer-col p, .footer-col a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+    display: flex;
     align-items: center;
+    gap: 8px;
+}
+.footer-col a:hover { color: var(--text); }
+
+.social-icons { display: flex; gap: 12px; margin-top: 0.8rem; }
+.social-icons a {
+    width: 36px; height: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    display: flex; justify-content: center; align-items: center;
     border-radius: 50%;
     transition: var(--transition);
 }
-
-.social-icons a:hover {
-    background: var(--accent-red);
-    color: white;
-    transform: translateY(-3px);
-}
+.social-icons a:hover { border-color: var(--text); }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-muted);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
 }
 
-/* Animations au scroll (Vanilla JS) */
+/* ===== Animations scroll ===== */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
+    transform: translateY(30px);
+    transition: all 0.7s ease-out;
 }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .hero-title { font-size: 3rem; }
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
     .modding-content { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
-
     .nav-links {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 10, 10, 0.98);
+        background: rgba(13, 13, 13, 0.98);
         flex-direction: column;
-        padding: 2rem 5%;
+        padding: 2rem 6%;
         gap: 1.5rem;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease-in-out;
+        transition: clip-path 0.35s ease-in-out;
     }
-
     .nav-links.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-
-    .hero-title { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1.2rem; }
-
-    .section-title { font-size: 2rem; }
+    section { padding: 6rem 6% 4rem; }
 }
