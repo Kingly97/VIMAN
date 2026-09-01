@@ -1,68 +1,68 @@
 /* =========================================
-   VIMAN — STYLE PRINCIPAL
+VIMAN — STYLE PRINCIPAL
 ========================================= */
 
 :root {
-    --bg: #080808;
-    --surface: #111111;
-    --surface-2: #181818;
-    --white: #f5f5f2;
-    --muted: #a7a7a4;
-    --line: rgba(255,255,255,.12);
+--bg: #080808;
+--surface: #111111;
+--surface-2: #181818;
+--white: #f5f5f2;
+--muted: #a7a7a4;
+--line: rgba(255,255,255,.12);
 
-    --ps: #315bb5;
-    --ps-dark: #203f82;
+--ps: #315bb5;  
+--ps-dark: #203f82;  
 
-    --nintendo: #df3029;
-    --nintendo-dark: #a92320;
+--nintendo: #df3029;  
+--nintendo-dark: #a92320;  
 
-    --xbox: #418349;
-    --xbox-dark: #2b6134;
+--xbox: #418349;  
+--xbox-dark: #2b6134;  
 
-    --whatsapp: #25d366;
+--whatsapp: #25d366;  
 
-    --radius: 16px;
+--radius: 16px;
+
 }
-
 
 /* =========================================
-   RESET
+RESET
 ========================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
+
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: "Inter", sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
+background: var(--bg);
+color: var(--white);
+font-family: "Inter", sans-serif;
+line-height: 1.6;
+overflow-x: hidden;
 }
 
 img {
-    max-width: 100%;
+max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+color: inherit;
+text-decoration: none;
 }
 
 button {
-    font-family: inherit;
+font-family: inherit;
 }
 
-
 /* =========================================
-   NAVBAR
+NAVBAR
 ========================================= */
 
 #navbar {
@@ -98,96 +98,112 @@ button {
 /* LOGO */
 
 .logo {
-    display: flex;
-    align-items: center;
+display: flex;
+align-items: center;
 }
 
 .logo-img {
-    width: 76px;
-    height: 50px;
+width: 76px;
+height: 50px;
 
-    object-fit: contain;
+object-fit: contain;  
 
-    border-radius: 8px;
+border-radius: 8px;  
 
-    background: white;
+background: white;  
 
-    padding: 7px;
+padding: 7px;
+
 }
 
+/* entete */
 
+.entete-img {
+width: 76px;
+height: 76px;
 
+object-fit: contain;  
+
+border-radius: 2px;  
+
+background: none;  
+
+padding: 7px;
+
+}
 
 /* MENU */
 
 .nav-links {
-    list-style: none;
+list-style: none;
 
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
+display: flex;  
+align-items: center;  
+gap: 1.2rem;
+
 }
 
 .nav-links a {
-    color: #ddd;
+color: #ddd;
 
-    font-family: "IBM Plex Mono", monospace;
-    font-size: .78rem;
+font-family: "IBM Plex Mono", monospace;  
+font-size: .78rem;  
 
-    transition: .25s ease;
+transition: .25s ease;
+
 }
 
 .nav-links a:hover {
-    color: white;
+color: white;
 }
-
 
 /* MOBILE BUTTON */
 
 .menu-toggle {
-    display: none;
+display: none;
 
-    width: 50px;
-    height: 50px;
+width: 50px;  
+height: 50px;  
 
-    background: transparent;
+background: transparent;  
 
-    border: 0;
+border: 0;  
 
-    cursor: pointer;
+cursor: pointer;
+
 }
 
 .menu-toggle span {
-    display: block;
+display: block;
 
-    width: 34px;
-    height: 3px;
+width: 34px;  
+height: 3px;  
 
-    margin: 6px auto;
+margin: 6px auto;  
 
-    background: white;
+background: white;  
 
-    transition: .3s ease;
+transition: .3s ease;
+
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+transform: translateY(9px) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
+opacity: 0;
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+transform: translateY(-9px) rotate(-45deg);
 }
 
-
 /* =========================================
-   HERO
+HERO
 ========================================= */
 
-.hero {
+hero {
     padding: 145px 5% 90px;
 
     min-height: 100vh;
@@ -206,988 +222,1020 @@ button {
 }
 
 .hero-inner {
-    max-width: 1300px;
-    margin: auto;
+max-width: 1300px;
+margin: auto;
 }
 
 .ticket-badge {
-    display: inline-flex;
-    align-items: center;
+display: inline-flex;
+align-items: center;
 
-    padding: .6rem 1rem;
+padding: .6rem 1rem;  
 
-    border: 1px solid var(--line);
-    border-radius: 7px;
+border: 1px solid var(--line);  
+border-radius: 7px;  
 
-    background: rgba(255,255,255,.025);
+background: rgba(255,255,255,.025);  
 
-    color: #aaa;
+color: #aaa;  
 
-    font-family: "IBM Plex Mono", monospace;
-    font-size: .72rem;
+font-family: "IBM Plex Mono", monospace;  
+font-size: .72rem;  
 
-    text-transform: uppercase;
-    letter-spacing: .12em;
+text-transform: uppercase;  
+letter-spacing: .12em;
+
 }
 
 .hero-title {
-    margin-top: 1.4rem;
+margin-top: 1.4rem;
 
-    max-width: 950px;
+max-width: 950px;  
 
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;  
 
-    font-size: clamp(3rem, 8vw, 7rem);
+font-size: clamp(3rem, 8vw, 7rem);  
 
-    line-height: .94;
+line-height: .94;  
 
-    letter-spacing: -.055em;
+letter-spacing: -.055em;
+
 }
 
 .hero-title span {
-    color: #fff;
+color: #fff;
 }
 
 .hero-subtitle {
-    max-width: 750px;
+max-width: 750px;
 
-    margin-top: 1.5rem;
+margin-top: 1.5rem;  
 
-    color: var(--muted);
+color: var(--muted);  
 
-    font-size: 1.08rem;
+font-size: 1.08rem;
+
 }
 
-
 /* =========================================
-   BRAND BLOCKS
+BRAND BLOCKS
 ========================================= */
 
 .brand-blocks {
-    display: grid;
+display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(3, 1fr);  
 
-    gap: 18px;
+gap: 18px;  
 
-    margin-top: 50px;
+margin-top: 50px;
+
 }
 
 .brand-block {
-    position: relative;
+position: relative;
 
-    min-height: 360px;
+min-height: 360px;  
 
-    overflow: hidden;
+overflow: hidden;  
 
-    border-radius: 17px;
+border-radius: 17px;  
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    background: var(--surface);
+background: var(--surface);  
 
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+transition:  
+    transform .35s ease,  
+    box-shadow .35s ease;
+
 }
 
 .brand-block:hover {
-    transform: translateY(-7px);
+transform: translateY(-7px);
 }
-
 
 /* IMAGE */
 
 .brand-image {
-    position: absolute;
-    inset: 0;
+position: absolute;
+inset: 0;
 
-    overflow: hidden;
+overflow: hidden;
+
 }
 
 .brand-image::after {
-    content: "";
+content: "";
 
-    position: absolute;
-    inset: 0;
+position: absolute;  
+inset: 0;  
 
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,.55),
-        transparent 55%
-    );
+background: linear-gradient(  
+    to top,  
+    rgba(0,0,0,.55),  
+    transparent 55%  
+);
+
 }
 
 .brand-image img {
-    width: 100%;
-    height: 100%;
+width: 100%;
+height: 100%;
 
-    object-fit: cover;
+object-fit: cover;  
 
-    transition: transform .5s ease;
+transition: transform .5s ease;
+
 }
 
 .brand-block:hover img {
-    transform: scale(1.04);
+transform: scale(1.04);
 }
-
 
 /* MARQUE */
 
 .brand-block--playstation {
-    border-color: rgba(49,91,181,.65);
+border-color: rgba(49,91,181,.65);
 
-    box-shadow:
-        0 15px 45px rgba(49,91,181,.10);
+box-shadow:  
+    0 15px 45px rgba(49,91,181,.10);
+
 }
 
 .brand-block--nintendo {
-    border-color: rgba(223,48,41,.65);
+border-color: rgba(223,48,41,.65);
 
-    box-shadow:
-        0 15px 45px rgba(223,48,41,.10);
+box-shadow:  
+    0 15px 45px rgba(223,48,41,.10);
+
 }
 
 .brand-block--xbox {
-    border-color: rgba(65,131,73,.65);
+border-color: rgba(65,131,73,.65);
 
-    box-shadow:
-        0 15px 45px rgba(65,131,73,.10);
+box-shadow:  
+    0 15px 45px rgba(65,131,73,.10);
+
 }
-
 
 /* LABEL */
 
 .brand-block-label {
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+left: 0;  
+right: 0;  
+bottom: 0;  
 
-    padding: 20px;
+padding: 20px;  
 
-    text-align: center;
+text-align: center;  
 
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;  
 
-    font-size: 1.15rem;
-    font-weight: 700;
+font-size: 1.15rem;  
+font-weight: 700;  
 
-    z-index: 2;
+z-index: 2;
+
 }
-
 
 /* couleurs labels */
 
 .brand-block--playstation .brand-block-label {
-    background: var(--ps-dark);
+background: var(--ps-dark);
 }
 
 .brand-block--nintendo .brand-block-label {
-    background: var(--nintendo-dark);
+background: var(--nintendo-dark);
 }
 
 .brand-block--xbox .brand-block-label {
-    background: var(--xbox-dark);
+background: var(--xbox-dark);
 }
 
-
 /* =========================================
-   HERO BUTTONS
+HERO BUTTONS
 ========================================= */
 
 .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
 
-    margin-top: 28px;
+margin-top: 28px;
+
 }
 
 .btn {
-    display: inline-flex;
+display: inline-flex;
 
-    align-items: center;
-    justify-content: center;
+align-items: center;  
+justify-content: center;  
 
-    min-height: 54px;
+min-height: 54px;  
 
-    padding: 0 25px;
+padding: 0 25px;  
 
-    border-radius: 8px;
+border-radius: 8px;  
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    font-weight: 700;
+font-weight: 700;  
 
-    cursor: pointer;
+cursor: pointer;  
 
-    transition: .25s ease;
+transition: .25s ease;
+
 }
 
 .btn:hover {
-    transform: translateY(-2px);
+transform: translateY(-2px);
 }
 
 .btn-primary {
-    background: var(--nintendo);
-    color: white;
+background: var(--nintendo);
+color: white;
 
-    border-color: transparent;
+border-color: transparent;
+
 }
 
 .btn-outline {
-    background: transparent;
-    color: white;
+background: transparent;
+color: white;
 }
 
 .btn-outline:hover {
-    background: rgba(255,255,255,.08);
+background: rgba(255,255,255,.08);
 }
 
-
 /* =========================================
-   FILTRE
+FILTRE
 ========================================= */
 
 .brand-filter {
-    display: flex;
-    flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
 
-    gap: 8px;
+gap: 8px;  
 
-    margin-top: 30px;
+margin-top: 30px;
+
 }
 
 .filter-btn {
-    padding: 10px 16px;
+padding: 10px 16px;
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    border-radius: 7px;
+border-radius: 7px;  
 
-    background: transparent;
+background: transparent;  
 
-    color: #aaa;
+color: #aaa;  
 
-    cursor: pointer;
+cursor: pointer;  
 
-    transition: .25s ease;
+transition: .25s ease;
+
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    color: white;
-    background: #202020;
+color: white;
+background: #202020;
 }
 
-
 /* =========================================
-   SECTIONS
+SECTIONS
 ========================================= */
 
 section {
-    width: min(1300px, 90%);
+width: min(1300px, 90%);
 
-    margin: auto;
+margin: auto;  
 
-    padding: 100px 0;
+padding: 100px 0;
+
 }
 
 .section-head {
-    margin-bottom: 40px;
+margin-bottom: 40px;
 }
 
 .section-head h2 {
-    margin-top: 15px;
+margin-top: 15px;
 
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;  
 
-    font-size: clamp(2.4rem, 5vw, 4.5rem);
+font-size: clamp(2.4rem, 5vw, 4.5rem);  
 
-    line-height: 1;
+line-height: 1;  
 
-    letter-spacing: -.04em;
+letter-spacing: -.04em;
+
 }
 
 .section-description {
-    margin-top: 15px;
+margin-top: 15px;
 
-    color: var(--muted);
+color: var(--muted);
+
 }
 
 .section-description a {
-    color: #fff;
+color: #fff;
 
-    text-decoration: underline;
+text-decoration: underline;
+
 }
 
-
 /* =========================================
-   PRODUCTS
+PRODUCTS
 ========================================= */
 
 .product-grid {
-    display: grid;
+display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(3, 1fr);  
 
-    gap: 18px;
+gap: 18px;
+
 }
 
 .product-card {
-    overflow: hidden;
+overflow: hidden;
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    border-radius: 15px;
+border-radius: 15px;  
 
-    background: var(--surface);
+background: var(--surface);  
 
-    transition:
-        transform .3s ease,
-        border-color .3s ease;
+transition:  
+    transform .3s ease,  
+    border-color .3s ease;
+
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+transform: translateY(-5px);
 }
-
 
 /* IMAGE */
 
 .product-image-wrap {
-    position: relative;
+position: relative;
 
-    height: 320px;
+height: 320px;  
 
-    background: #181818;
+background: #181818;  
 
-    overflow: hidden;
+overflow: hidden;
+
 }
 
 .product-image {
-    width: 100%;
-    height: 100%;
+width: 100%;
+height: 100%;
 
-    object-fit: cover;
+object-fit: cover;  
 
-    display: block;
+display: block;  
 
-    transition: transform .4s ease;
+transition: transform .4s ease;
+
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.035);
+transform: scale(1.035);
 }
-
 
 /* BADGE */
 
 .product-image-wrap .ticket-badge {
-    position: absolute;
+position: absolute;
 
-    top: 18px;
-    left: 18px;
+top: 18px;  
+left: 18px;  
 
-    z-index: 3;
+z-index: 3;  
 
-    color: white;
+color: white;  
 
-    background: rgba(10,10,10,.75);
+background: rgba(10,10,10,.75);  
 
-    backdrop-filter: blur(8px);
+backdrop-filter: blur(8px);
+
 }
 
 .ticket-badge.playstation {
-    border-color: var(--ps);
-    color: #dce7ff;
+border-color: var(--ps);
+color: #dce7ff;
 }
 
 .ticket-badge.nintendo {
-    border-color: var(--nintendo);
-    color: #ffe1df;
+border-color: var(--nintendo);
+color: #ffe1df;
 }
 
 .ticket-badge.xbox {
-    border-color: var(--xbox);
-    color: #dcffdf;
+border-color: var(--xbox);
+color: #dcffdf;
 }
-
 
 /* INFO */
 
 .product-info {
-    padding: 25px;
+padding: 25px;
 }
 
 .product-info h3 {
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;
 
-    font-size: 1.35rem;
+font-size: 1.35rem;  
 
-    line-height: 1.2;
+line-height: 1.2;
+
 }
 
 .product-info p {
-    margin-top: 12px;
+margin-top: 12px;
 
-    color: var(--muted);
+color: var(--muted);
+
 }
 
 .product-info .price {
-    color: white;
+color: white;
 
-    font-weight: 700;
+font-weight: 700;  
 
-    margin-bottom: 20px;
+margin-bottom: 20px;
+
 }
 
 .product-info .btn {
-    margin-top: 20px;
+margin-top: 20px;
 }
-
 
 /* MARQUE COLORS */
 
 .product-card--playstation {
-    border-color: rgba(49,91,181,.5);
+border-color: rgba(49,91,181,.5);
 }
 
 .product-card--xbox {
-    border-color: rgba(65,131,73,.5);
+border-color: rgba(65,131,73,.5);
 }
 
 .product-card--nintendo {
-    border-color: rgba(223,48,41,.5);
+border-color: rgba(223,48,41,.5);
 }
 
-
 /* =========================================
-   EMPTY STATE
+EMPTY STATE
 ========================================= */
 
 .empty-state {
-    padding: 70px 30px;
+padding: 70px 30px;
 
-    text-align: center;
+text-align: center;  
 
-    border: 1px dashed var(--line);
+border: 1px dashed var(--line);  
 
-    border-radius: 15px;
+border-radius: 15px;  
 
-    background: rgba(255,255,255,.02);
+background: rgba(255,255,255,.02);
+
 }
 
 .empty-icon {
-    font-size: 3rem;
+font-size: 3rem;
 
-    color: #777;
+color: #777;  
 
-    margin-bottom: 15px;
+margin-bottom: 15px;
+
 }
 
 .empty-state h3 {
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;
 
-    font-size: 1.5rem;
+font-size: 1.5rem;
+
 }
 
 .empty-state p {
-    max-width: 600px;
+max-width: 600px;
 
-    margin: 10px auto 0;
+margin: 10px auto 0;  
 
-    color: var(--muted);
+color: var(--muted);
+
 }
 
-
 /* =========================================
-   MODDING
+MODDING
 ========================================= */
 
 .modding-section {
-    width: 100%;
+width: 100%;
 
-    padding-left: 5%;
-    padding-right: 5%;
+padding-left: 5%;  
+padding-right: 5%;  
 
-    background: #0d0d0d;
+background: #0d0d0d;
+
 }
 
 .modding-content {
-    max-width: 1300px;
+max-width: 1300px;
 
-    margin: auto;
+margin: auto;  
 
-    display: grid;
+display: grid;  
 
-    grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr;  
 
-    gap: 50px;
+gap: 50px;  
 
-    align-items: center;
+align-items: center;
+
 }
 
 .modding-text h2 {
-    margin: 18px 0;
+margin: 18px 0;
 
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;  
 
-    font-size: clamp(2.4rem, 5vw, 4rem);
+font-size: clamp(2.4rem, 5vw, 4rem);  
 
-    line-height: 1;
+line-height: 1;
+
 }
 
 .modding-text p {
-    color: var(--muted);
+color: var(--muted);
 }
 
 .modding-text ul {
-    margin: 25px 0;
+margin: 25px 0;
 
-    padding-left: 20px;
+padding-left: 20px;  
 
-    color: #ddd;
+color: #ddd;
+
 }
 
 .modding-text li {
-    margin: 9px 0;
+margin: 9px 0;
 }
 
 .modding-image {
-    min-height: 450px;
+min-height: 450px;
 
-    overflow: hidden;
+overflow: hidden;  
 
-    border-radius: 16px;
+border-radius: 16px;  
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);
+
 }
 
 .modding-image img {
-    width: 100%;
-    height: 100%;
+width: 100%;
+height: 100%;
 
-    object-fit: cover;
+object-fit: cover;  
 
-    display: block;
+display: block;
+
 }
 
-
 /* =========================================
-   CTA
+CTA
 ========================================= */
 
 .cta-section {
-    width: 90%;
+width: 90%;
 }
 
 .cta-box {
-    padding: 70px 30px;
+padding: 70px 30px;
 
-    text-align: center;
+text-align: center;  
 
-    border-radius: 18px;
+border-radius: 18px;  
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(223,48,41,.14),
-            transparent 65%
-        ),
-        #111;
+background:  
+    radial-gradient(  
+        circle at center,  
+        rgba(223,48,41,.14),  
+        transparent 65%  
+    ),  
+    #111;
+
 }
 
 .cta-box h2 {
-    margin-top: 20px;
+margin-top: 20px;
 
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;  
 
-    font-size: clamp(2rem, 5vw, 4rem);
+font-size: clamp(2rem, 5vw, 4rem);  
 
-    line-height: 1;
+line-height: 1;
+
 }
 
 .cta-box p {
-    max-width: 650px;
+max-width: 650px;
 
-    margin: 18px auto 28px;
+margin: 18px auto 28px;  
 
-    color: var(--muted);
+color: var(--muted);
+
 }
 
-
 /* =========================================
-   FOOTER
+FOOTER
 ========================================= */
 
 footer {
-    background: #050505;
+background: #050505;
 
-    border-top: 1px solid var(--line);
+border-top: 1px solid var(--line);
+
 }
 
 .footer-content {
-    width: 90%;
-    max-width: 1300px;
+width: 90%;
+max-width: 1300px;
 
-    margin: auto;
+margin: auto;  
 
-    padding: 70px 0;
+padding: 70px 0;  
 
-    display: grid;
+display: grid;  
 
-    grid-template-columns: 1.4fr 1fr 1fr;
+grid-template-columns: 1.4fr 1fr 1fr;  
 
-    gap: 50px;
+gap: 50px;
+
 }
 
 .footer-col h3 {
-    font-family: "Space Grotesk", sans-serif;
+font-family: "Space Grotesk", sans-serif;
 
-    margin-bottom: 15px;
+margin-bottom: 15px;
+
 }
 
 .footer-col p,
 .footer-col a {
-    display: block;
+display: block;
 
-    color: var(--muted);
+color: var(--muted);  
 
-    margin: 8px 0;
+margin: 8px 0;
+
 }
 
 .footer-col a:hover {
-    color: white;
+color: white;
 }
 
 .social-icons {
-    display: flex;
-    gap: 10px;
+display: flex;
+gap: 10px;
 }
 
 .social-icons a {
-    width: 42px;
-    height: 42px;
+width: 42px;
+height: 42px;
 
-    display: grid;
-    place-items: center;
+display: grid;  
+place-items: center;  
 
-    border: 1px solid var(--line);
+border: 1px solid var(--line);  
 
-    border-radius: 50%;
+border-radius: 50%;  
 
-    color: white;
+color: white;  
 
-    font-weight: 700;
+font-weight: 700;
+
 }
 
 .footer-bottom {
-    padding: 20px 5%;
+padding: 20px 5%;
 
-    text-align: center;
+text-align: center;  
 
-    border-top: 1px solid rgba(255,255,255,.06);
+border-top: 1px solid rgba(255,255,255,.06);  
 
-    color: #777;
+color: #777;  
 
-    font-size: .85rem;
+font-size: .85rem;
+
 }
 
-
 /* =========================================
-   WHATSAPP FLOTTANT
+WHATSAPP FLOTTANT
 ========================================= */
 
 .floating-wa {
-    position: fixed;
+position: fixed;
 
-    right: 22px;
-    bottom: 22px;
+right: 22px;  
+bottom: 22px;  
 
-    width: 68px;
-    height: 68px;
+width: 68px;  
+height: 68px;  
 
-    display: grid;
-    place-items: center;
+display: grid;  
+place-items: center;  
 
-    z-index: 999;
+z-index: 999;  
 
-    border-radius: 50%;
+border-radius: 50%;  
 
-    background: #090909;
+background: #090909;  
 
-    border: 1px solid rgba(255,255,255,.15);
+border: 1px solid rgba(255,255,255,.15);  
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+box-shadow: 0 10px 30px rgba(0,0,0,.4);  
 
-    transition: .25s ease;
+transition: .25s ease;
+
 }
 
 .floating-wa:hover {
-    transform: scale(1.08);
+transform: scale(1.08);
 }
 
 .floating-wa span {
-    color: var(--whatsapp);
+color: var(--whatsapp);
 
-    font-size: 2.2rem;
+font-size: 2.2rem;
+
 }
 
-
 /* =========================================
-   ANIMATIONS
+ANIMATIONS
 ========================================= */
 
 .reveal {
-    opacity: 0;
+opacity: 0;
 
-    transform: translateY(30px);
+transform: translateY(30px);  
 
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
+transition:  
+    opacity .7s ease,  
+    transform .7s ease;
+
 }
 
 .reveal.active {
-    opacity: 1;
+opacity: 1;
 
-    transform: translateY(0);
+transform: translateY(0);
+
 }
 
-
 /* =========================================
-   RESPONSIVE TABLETTE
+RESPONSIVE TABLETTE
 ========================================= */
 
 @media (max-width: 1000px) {
 
-    .nav-links {
-        gap: .7rem;
-    }
+.nav-links {  
+    gap: .7rem;  
+}  
 
-    .nav-links a {
-        font-size: .68rem;
-    }
+.nav-links a {  
+    font-size: .68rem;  
+}  
 
-    .brand-blocks {
-        grid-template-columns: 1fr;
-    }
+.brand-blocks {  
+    grid-template-columns: 1fr;  
+}  
 
-    .brand-block {
-        min-height: 380px;
-    }
+.brand-block {  
+    min-height: 380px;  
+}  
 
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.product-grid {  
+    grid-template-columns: repeat(2, 1fr);  
+}  
 
-    .modding-content {
-        grid-template-columns: 1fr;
-    }
+.modding-content {  
+    grid-template-columns: 1fr;  
+}  
 
-    .modding-image {
-        min-height: 350px;
-    }
+.modding-image {  
+    min-height: 350px;  
+}  
 
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
+.footer-content {  
+    grid-template-columns: 1fr 1fr;  
 }
 
+}
 
 /* =========================================
-   RESPONSIVE MOBILE
+RESPONSIVE MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
 
-    #navbar {
-        height: 82px;
+#navbar {  
+    height: 82px;  
 
-        padding: 0 7%;
-    }
+    padding: 0 7%;  
+}  
 
-    .logo-img {
-        width: 76px;
-        height: 50px;
-    }
+.logo-img {  
+    width: 76px;  
+    height: 50px;  
+}  
 
 
-    /* MENU */
+/* MENU */  
 
-    .menu-toggle {
-        display: block;
-    }
+.menu-toggle {  
+    display: block;  
+}  
 
-    .nav-links {
-        position: absolute;
+.nav-links {  
+    position: absolute;  
 
-        top: 82px;
-        left: 0;
+    top: 82px;  
+    left: 0;  
 
-        width: 100%;
+    width: 100%;  
 
-        padding: 20px 7% 30px;
+    padding: 20px 7% 30px;  
 
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+    display: flex;  
+    flex-direction: column;  
+    align-items: stretch;  
 
-        gap: 0;
+    gap: 0;  
 
-        background: rgba(8,8,8,.97);
+    background: rgba(8,8,8,.97);  
 
-        backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);  
 
-        border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);  
 
-        opacity: 0;
+    opacity: 0;  
 
-        transform: translateY(-15px);
+    transform: translateY(-15px);  
 
-        pointer-events: none;
+    pointer-events: none;  
 
-        transition: .3s ease;
-    }
+    transition: .3s ease;  
+}  
 
-    .nav-links.active {
-        opacity: 1;
+.nav-links.active {  
+    opacity: 1;  
 
-        transform: translateY(0);
+    transform: translateY(0);  
 
-        pointer-events: auto;
-    }
+    pointer-events: auto;  
+}  
 
-    .nav-links li {
-        border-bottom: 1px solid rgba(255,255,255,.06);
-    }
+.nav-links li {  
+    border-bottom: 1px solid rgba(255,255,255,.06);  
+}  
 
-    .nav-links a {
-        display: block;
+.nav-links a {  
+    display: block;  
 
-        padding: 15px 0;
+    padding: 15px 0;  
 
-        font-size: .8rem;
-    }
+    font-size: .8rem;  
+}  
 
 
-    /* HERO */
+/* HERO */  
 
-    .hero {
-        padding: 125px 7% 70px;
-    }
+.hero {  
+    padding: 125px 7% 70px;  
+}  
 
-    .hero-title {
-        font-size: clamp(3rem, 15vw, 5rem);
-    }
+.hero-title {  
+    font-size: clamp(3rem, 15vw, 5rem);  
+}  
 
-    .hero-subtitle {
-        font-size: .98rem;
-    }
+.hero-subtitle {  
+    font-size: .98rem;  
+}  
 
 
-    /* BRAND */
+/* BRAND */  
 
-    .brand-blocks {
-        margin-top: 35px;
+.brand-blocks {  
+    margin-top: 35px;  
 
-        gap: 15px;
-    }
+    gap: 15px;  
+}  
 
-    .brand-block {
-        min-height: 270px;
-    }
+.brand-block {  
+    min-height: 270px;  
+}  
 
-    .brand-block-label {
-        padding: 16px;
+.brand-block-label {  
+    padding: 16px;  
 
-        font-size: 1rem;
-    }
+    font-size: 1rem;  
+}  
 
 
-    /* BUTTONS */
+/* BUTTONS */  
 
-    .hero-actions {
-        flex-direction: column;
-    }
+.hero-actions {  
+    flex-direction: column;  
+}  
 
-    .hero-actions .btn {
-        width: 100%;
-    }
+.hero-actions .btn {  
+    width: 100%;  
+}  
 
 
-    /* SECTIONS */
+/* SECTIONS */  
 
-    section {
-        width: 86%;
+section {  
+    width: 86%;  
 
-        padding: 75px 0;
-    }
+    padding: 75px 0;  
+}  
 
-    .section-head {
-        margin-bottom: 30px;
-    }
+.section-head {  
+    margin-bottom: 30px;  
+}  
 
 
-    /* PRODUCTS */
+/* PRODUCTS */  
 
-    .product-grid {
-        grid-template-columns: 1fr;
+.product-grid {  
+    grid-template-columns: 1fr;  
 
-        gap: 18px;
-    }
+    gap: 18px;  
+}  
 
-    .product-image-wrap {
-        height: 270px;
-    }
+.product-image-wrap {  
+    height: 270px;  
+}  
 
-    .product-info {
-        padding: 22px;
-    }
+.product-info {  
+    padding: 22px;  
+}  
 
 
-    /* MODDING */
+/* MODDING */  
 
-    .modding-section {
-        padding-left: 7%;
-        padding-right: 7%;
-    }
+.modding-section {  
+    padding-left: 7%;  
+    padding-right: 7%;  
+}  
 
-    .modding-content {
-        gap: 30px;
-    }
+.modding-content {  
+    gap: 30px;  
+}  
 
-    .modding-image {
-        min-height: 280px;
-    }
+.modding-image {  
+    min-height: 280px;  
+}  
 
 
-    /* FOOTER */
+/* FOOTER */  
 
-    .footer-content {
-        width: 86%;
+.footer-content {  
+    width: 86%;  
 
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  
 
-        gap: 35px;
+    gap: 35px;  
 
-        padding: 60px 0;
-    }
+    padding: 60px 0;  
+}  
 
 
-    /* WHATSAPP */
+/* WHATSAPP */  
 
-    .floating-wa {
-        width: 60px;
-        height: 60px;
+.floating-wa {  
+    width: 60px;  
+    height: 60px;  
 
-        right: 16px;
-        bottom: 18px;
-    }
+    right: 16px;  
+    bottom: 18px;  
+}
 
 }
