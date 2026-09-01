@@ -95,7 +95,6 @@ button {
     transition: .3s ease;
 }
 
-
 /* LOGO */
 
 .logo {
@@ -194,17 +193,16 @@ button {
     min-height: 100vh;
 
     background:
-        linear-gradient(
-            rgba(0,0,0,.58),
-            rgba(0,0,0,.72)
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(49,91,181,.08),
+            transparent 35%
         ),
-        url("entete.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    background-attachment: scroll;
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(223,48,41,.06),
+            transparent 35%
+        );
 }
 
 .hero-inner {
