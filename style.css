@@ -113,6 +113,25 @@ button {
     padding: 7px;
 }
 
+/* LOGO */
+
+.entete {
+    display: flex;
+    align-items: center;
+}
+
+.entete-img {
+    width: 76px;
+    height: 50px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    background: blue;
+
+    padding: 7px;
+}
 
 
 /* MENU */
