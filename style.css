@@ -118,16 +118,7 @@ button {
 
 
 .entete-img {
-    width: 76px;
-    height: 50px;
-
-    object-fit: contain;
-
-    border-radius: 8px;
-
-    background: none;
-
-    padding: 7px;
+    
 }
 
 
